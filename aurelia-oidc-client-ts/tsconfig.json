@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "module": "amd",
     "esModuleInterop": true,
     "declaration": true,
     "typeRoots": [

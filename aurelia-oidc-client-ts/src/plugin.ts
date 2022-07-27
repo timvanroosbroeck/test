@@ -19,8 +19,8 @@ const retrieveUserlandConfig = (
   callback?: PluginCallback
 ): OpenIdConnectConfiguration => {
   let config = new OpenIdConnectConfiguration();
-
-  if (!callback || callback.length > 1) {
+  console.log(callback);
+  if (!callback || callback.length > 1 || callback.length === undefined) {
     return config;
   }
 
