@@ -1,5 +1,6 @@
 import { Aurelia } from "aurelia-framework";
 import { config } from "process";
+import { OidcConfig } from "./auth-config";
 import environment from "./environment";
 
 export function configure(aurelia: Aurelia): void {
@@ -10,9 +11,7 @@ export function configure(aurelia: Aurelia): void {
     .feature("resources");
 
   aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
-  //aurelia.use.plugin("aurelia-oidc-client", (config) => {
-  //   config.
-  // } );
+  aurelia.use.plugin("aurelia-oidc-client", () => new OidcConfig());
 
   if (environment.testing) {
     aurelia.use.plugin("aurelia-testing");
