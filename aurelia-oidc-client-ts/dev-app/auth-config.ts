@@ -1,6 +1,6 @@
-import { OpenIdConnectConfiguration } from "../src/index";
 import environment from "./environment";
 import { Log, UserManagerSettings, WebStorageStateStore } from "oidc-client-ts";
+import { OpenIdConnectConfiguration } from "resources";
 
 export class OidcConfig extends OpenIdConnectConfiguration {
   constructor() {
@@ -23,7 +23,7 @@ export class OidcConfig extends OpenIdConnectConfiguration {
       redirect_uri: `${environment.appUrl}/signin-callback`,
       // popup_post_logout_redirect_uri: `${environment.appUrl}/logout-popup.html`,
       // popup_redirect_uri: `${environment.appUrl}/login-popup.html`,
-      response_type: "id_token token",
+      response_type: "code",
       scope: "openid profile email api",
       // number of millisecods to wait for the authorization
       // server to response to silent renew request

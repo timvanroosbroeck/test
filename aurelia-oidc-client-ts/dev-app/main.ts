@@ -8,10 +8,10 @@ export function configure(aurelia: Aurelia): void {
     .standardConfiguration()
     // load the plugin ../src
     // The "resources" is mapped to "../src" in aurelia.json "paths"
-    .feature("resources");
+    .feature("resources", () => new OidcConfig());
 
   aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
-  aurelia.use.plugin("aurelia-oidc-client", () => new OidcConfig());
+  // aurelia.use.plugin("aurelia-oidc-client", () => new OidcConfig());
 
   if (environment.testing) {
     aurelia.use.plugin("aurelia-testing");

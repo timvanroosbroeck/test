@@ -1,5 +1,5 @@
 import { UserManagerSettings } from "oidc-client-ts";
-import { OpenIdConnectConfiguration } from "./index";
+import OpenIdConnectConfiguration from "open-id-connect-configuration";
 
 const defaultClientUri = "https://localhost:9000";
 

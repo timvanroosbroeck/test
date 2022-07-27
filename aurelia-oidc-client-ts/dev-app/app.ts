@@ -1,6 +1,8 @@
-import { Aurelia } from "aurelia-framework";
+import { Aurelia, autoinject } from "aurelia-framework";
 import { UserManager } from "oidc-client-ts";
-import OpenIdConnect from "open-id-connect";
+import { OpenIdConnect } from "resources";
+
+@autoinject
 export class App {
   public message = "from Aurelia!";
 
@@ -20,7 +22,9 @@ export class App {
     //
   }
 
-  private login(): void {
+  private async login() {
+    const u = await this.userManager.getUser();
+    console.log(u);
     this.oidcConnect.login();
   }
 }
